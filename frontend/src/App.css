@@ -1,0 +1,89 @@
+/* src/App.css */
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(15px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.filters {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+#monthFilter, #searchBox {
+  padding:  15px;
+  font-size: 25px;
+  border-radius: 50px;
+  border: 5px solid #e6ff03;
+  width: 300px;
+}
+
+#monthFilter:focus, #searchBox:focus {
+  outline:#ff0000;
+  border-color: #ff0000;
+}
+
+label {
+  font-weight: bold;
+}
+.pagination {
+  position: sticky;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.pagination button {
+  font-size: 25px;
+  margin: 0 100px;
+  padding: 20px 20px;
+  border: none;
+  width: 150px;
+  border-radius: 10%;
+  background-color: #000000;
+  color: white;
+  cursor: pointer;
+}
+
+
+.pagination span {
+  font-size: 25px;
+}
