@@ -1,14 +1,23 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+import ReactDOM from 'react-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom'; // Import BrowserRouter, Route, and Routes
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import BarGraph from './BarGraph';
+import PieChart2 from './PieChart2';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
+ReactDOM.render(
   <React.StrictMode>
-    <App />
-  </React.StrictMode>
+    <BrowserRouter>
+      <Routes> 
+        <Route  path="/" element={<App />} /> 
+        <Route path="/bar_graph" element={<BarGraph />} /> 
+        <Route path="/pie_chart" element={<PieChart2 />} /> 
+      </Routes>
+    </BrowserRouter>
+  </React.StrictMode>,
+  document.getElementById('root')
 );
 
 // If you want to start measuring performance in your app, pass a function

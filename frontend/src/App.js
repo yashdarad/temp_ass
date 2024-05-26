@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState} from 'react';
+import {useNavigate} from "react-router-dom";
 import axios from 'axios';
 import SalesSummary from './SalesSummary';
 import './App.css';
@@ -9,7 +10,7 @@ function App() {
   const [searchTerm, setSearchTerm] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage] = useState(10); // Number of items per page
-
+  const dist={1:"January",2:"February",3:"March",4:"April",5:"May",6:"June",7:"July",8:"August",9:"September",10:"October",11:"November",12:"December"}
   useEffect(() => {
     axios.get('http://localhost:5000/api/products')
       .then(response => {
@@ -19,7 +20,7 @@ function App() {
         console.error('Error fetching data:', error);
       });
   }, []);
-
+const navigate=useNavigate();
   const handleMonthChange = (e) => {
     setSelectedMonth(e.target.value);
     setCurrentPage(1); // Reset to first page on filter change
@@ -51,7 +52,14 @@ function App() {
   const handlePrevPage = () => {
     setCurrentPage((prevPage) => Math.max(prevPage - 1, 1));
   };
-
+function handlebarclick()
+{
+  navigate(`/bar_graph?month=${selectedMonth}`);
+}
+function handlepieclick()
+{
+  navigate(`/pie_chart?month=${selectedMonth}`);
+}
   return (
     <div>
       <h1>Product Table</h1>
@@ -81,7 +89,11 @@ function App() {
           onChange={handleSearchChange}
         />
       </div>
+      <div className="selected_routes">
       <SalesSummary selectedMonth={selectedMonth} />
+      <div className="bar_graph" onClick={handlebarclick}>BarGraph for {dist[selectedMonth]}</div>
+      <div className="bar_graph"  onClick={handlepieclick}>Pie Chart for {dist[selectedMonth]}</div>
+      </div>
       <table>
         <thead>
           <tr>

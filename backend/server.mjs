@@ -62,6 +62,35 @@ app.get('/api/sales-summary', async (req, res) => {
     }
 });
 
+
+app.get('/api/bar_chart', async (req, res) => {
+    try {
+        const month = req.query.month;
+        const products = await Product.find();
+        console.log(products);
+        let filteredProducts = products;
+        if (month) {
+            filteredProducts = products.filter(product => {
+                const saleDate = new Date(product.dateOfSale);
+                return saleDate.getMonth() + 1 === parseInt(month);
+            });
+        }
+       
+        const prices = filteredProducts.map(product => {
+            return { price: product.price };
+        });
+        
+        
+
+
+        res.json({
+            prices
+        });
+    } catch (error) {
+        res.status(500).send(error);
+    }
+});
+
 // Start the server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {

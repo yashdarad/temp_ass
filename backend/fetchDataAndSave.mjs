@@ -11,7 +11,7 @@ const productSchema = new mongoose.Schema({
     category: String,
     sold: Boolean,
     image: String,
-    dateOfSale: Date // Add dateOfSale field to the schema
+    dateOfSale: Date 
 });
 
 const Product = mongoose.model('Product', productSchema);

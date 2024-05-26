@@ -11,6 +11,7 @@ h1 {
 }
 
 table {
+  padding: 15px;
   width: 100%;
   table-layout: fixed;
 }
@@ -51,8 +52,6 @@ td {
 
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,500,300,700);
 body {
-  background: -webkit-linear-gradient(left, #000000, #bf00ff);
-  background: linear-gradient(to right, #0581cf, #640078);
   font-family: 'Roboto', sans-serif;
 }
 

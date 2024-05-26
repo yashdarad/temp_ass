@@ -16,12 +16,16 @@ function SalesSummary({ selectedMonth }) {
         console.error('Error fetching sales summary:', error);
       });
   }, [selectedMonth]);
+  const dist={1:"January",2:"February",3:"March",4:"April",5:"May",6:"June",7:"July",8:"August",9:"September",10:"October",11:"November",12:"December"}
 
   return (
-    <div>
-      <h2>Sales Summary for {selectedMonth ? `Month ${selectedMonth}` : 'All Time'}</h2>
-      <div>Total Sold Items: {totalSoldItems}</div>
-      <div>Total Unsold Items: {totalUnsoldItems}</div>
+    <div className="sales_summary_container">
+
+<h2 className="sales_heading">Sales Summary for { selectedMonth ? dist[selectedMonth] : 'All Time' }</h2>
+
+
+      <div className="sub_heading">Total Sold Items: {totalSoldItems}</div>
+      <div className="sub_heading">Total Unsold Items: {totalUnsoldItems}</div>
     </div>
   );
 }
