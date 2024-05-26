@@ -35,7 +35,6 @@ export default function PieChart2() {
         '801-900': 0,
         '900+': 0
       });
-    console.log(selectedMonth,"hello")
 
 
     useEffect(() => {
@@ -61,7 +60,7 @@ export default function PieChart2() {
           // Iterate through the prices array and update priceRanges state
           prices.forEach(price => {
             console.log(price,"pricesk,dskdfs")
-            if(price.price>40 ) console.log("magya")
+            if(price.price>40 )
             if (price.price <= 100) setPriceRanges(prevState => ({ ...prevState, '0-100': prevState['0-100'] + 1 }));
             else if (price.price <= 200) setPriceRanges(prevState => ({ ...prevState, '101-200': prevState['101-200'] + 1 }));
             else if (price.price <= 300) setPriceRanges(prevState => ({ ...prevState, '201-300': prevState['201-300'] + 1 }));
@@ -86,12 +85,9 @@ export default function PieChart2() {
         .filter(([key, value]) => value > 0) // Filter out entries with count 0
         .map(([key, value]) => ({ value, label: key })); // Map entries to objects with value and label keys
       
-      console.log(newArray,"new Artraya sksk");
-      console.log(data,"data")
        setdataaaa(newArray) 
        } , [priceRanges]);
 
-      console.log(priceRanges,"priceRanges")
   return (
     <div className="pie_container">
         <div style={{color:"white",fontSize:"3vw"}}>Pie Chart for the month {dist[selectedMonth]}</div>
