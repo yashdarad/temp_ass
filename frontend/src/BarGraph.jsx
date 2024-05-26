@@ -142,15 +142,13 @@ export default function BarGraph() {
 
   React.useEffect(() => {
     // Check if data.prices is an object
-    console.log(data,"hello bahiaia")
     if (typeof data.prices === 'object' && data.prices !== null) {
       // Extract the prices from the object
       const prices = Object.values(data.prices);
       
       // Iterate through the prices array and update priceRanges state
       prices.forEach(price => {
-        console.log(price,"pricesk,dskdfs")
-        if(price.price>40 ) console.log("magya")
+        if(price.price>40 ) 
         if (price.price <= 100) setPriceRanges(prevState => ({ ...prevState, '0-100': prevState['0-100'] + 1 }));
         else if (price.price <= 200) setPriceRanges(prevState => ({ ...prevState, '101-200': prevState['101-200'] + 1 }));
         else if (price.price <= 300) setPriceRanges(prevState => ({ ...prevState, '201-300': prevState['201-300'] + 1 }));
@@ -165,7 +163,6 @@ export default function BarGraph() {
     } else {
       console.error("Data is not in the expected format.");
     }
-    console.log(priceRanges['0-100'],"lansd")
     
     
   }, [data]); 
